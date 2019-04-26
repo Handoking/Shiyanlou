@@ -1,5 +1,9 @@
 package com.shiyanlou.calculator.domain;
+<<<<<<< HEAD
 /**
+=======
+/*
+>>>>>>> 815d66f1917ffa023005d4d3a8a5f79b8bc60215
 *用来封装后端返回的结果、错误原因、处理结果状态
 *author:handoking
 */
