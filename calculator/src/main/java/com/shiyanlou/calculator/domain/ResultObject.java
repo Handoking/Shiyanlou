@@ -1,4 +1,4 @@
-ckage com.shiyanlou.calculator.domain;
+package com.shiyanlou.calculator.domain;
 /*
 *用来封装后端返回的结果、错误原因、处理结果状态
 *author:handoking

@@ -7,7 +7,7 @@ import com.shiyanlou.calculator.service.CalculatorService;
 *author:handoking
 *service实现类
 */
-@service
+@Service
 public class CalculatorServiceImpl implements CalculatorService {
 
       /**
