@@ -61,6 +61,7 @@ public class Account {
         this.username = username;
     }
     @JsonProperty
+    // 将该注解添加在 java 类的某个属性上，实现属性重命名
     public void setPasswd(String passwd) {
         this.passwd = passwd;
     }

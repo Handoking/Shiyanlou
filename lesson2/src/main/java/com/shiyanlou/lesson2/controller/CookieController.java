@@ -21,7 +21,7 @@ import com.shiyanlou.lesson2.domain.ResultObject;
 public class CookieController {
     @GetMapping("set")
     // 功能为设置cookie，返回给前端，指定请求方法类型为get、URL为/cookie/set
-    public ResultObject setCookie(HttpServletRequest request, HttpServletResponse response) {
+    public ResultObject setCookie(HttpServletResponse response) {
         // 获取当前时间
         String time = String.valueOf(System.currentTimeMillis());
         // 创建cookie，用来记录用户最近一次访问时间
@@ -30,6 +30,26 @@ public class CookieController {
         cookie.setMaxAge(60 * 60 * 24 * 7);
         // 将cookie添加到响应中
         response.addCookie(cookie);
+        return new ResultObject(null);
+    }
+    @GetMapping("get")
+    // 功能为为从前端请求中获取cookie，指定请求方法类型为get、URL为/cookie/set
+    public ResultObject getCookie(HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null){
+            for(Cookie cookie :cookies){
+                if ("last".equals(cookie.getValue())){
+                    System.out.println(cookie.getValue());
+                    return new ResultObject(null);
+                }
+            }
+        }
+        return new ResultObject(-1,"get cookie fail");
+    }
+    // 功能为通过注解从前端请求中获取指定名称的cookie，指定请求方法类型为get、URL为/cookie/getByAnnotation
+    @GetMapping("getByAnnotation")
+    public ResultObject getCookieByAnnotation(@CookieValue("last")String last){
+        System.out.println(last);
         return new ResultObject(null);
     }
 }
